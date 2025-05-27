@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Piano Exercise Matrix</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <main>
+    <header>
+      <h1>Piano Exercise Matrix</h1>
+    </header>
+
+    <div class="unified-content-area">
+      <section id="scale-visualizer-and-controller">
+        <div class="controls">
+          <div class="control-row">
+            <label for="visualizerRootNoteSelect">Root Note</label>
+            <select id="visualizerRootNoteSelect"></select>
+            <label for="visualizerScaleTypeSelect">Scale Type</label>
+            <select id="visualizerScaleTypeSelect"></select>
+          </div>
+          <div class="control-row button-row">
+            <button id="show-scale-visualizer-btn" class="btn-solid">Show Scale</button>
+            <button id="update-matrix-exercises-btn" class="btn-outline">Update Matrix</button>
+          </div>
+        </div>
+
+        <div id="piano-wrapper">
+          <div class="piano-felt-line"></div>
+          <div id="piano-container">
+            <div class="key white" data-note="C4"></div>
+            <div class="key black" data-note="C#4"></div>
+            <div class="key white" data-note="D4"></div>
+            <div class="key black" data-note="D#4"></div>
+            <div class="key white" data-note="E4"></div>
+            <div class="key white" data-note="F4"></div>
+            <div class="key black" data-note="F#4"></div>
+            <div class="key white" data-note="G4"></div>
+            <div class="key black" data-note="G#4"></div>
+            <div class="key white" data-note="A4"></div>
+            <div class="key black" data-note="A#4"></div>
+            <div class="key white" data-note="B4"></div>
+            <div class="key white" data-note="C5"></div>
+          </div>
+        </div>
+        <div id="scale-name-display"></div>
+      </section>
+
+      <section id="exercise-matrix-section">
+        <div id="table-wrapper">
+          <div id="tableContainer"></div>
+        </div>
+      </section>
+    </div>
+
+    <hr>
+
+    <section id="practice-tracker">
+      <h2>🎯 Practice Tracker</h2>
+      <div class="form-group">
+        <label for="exercise-log">Exercise Practiced</label>
+        <input type="text" id="exercise-log" placeholder="e.g., C Major Scale" />
+      </div>
+      <div class="form-group">
+        <label for="practice-date">Date</label>
+        <input type="date" id="practice-date" />
+      </div>
+      <div class="form-group">
+        <label for="practice-notes">Notes</label>
+        <textarea id="practice-notes" rows="3" placeholder="e.g., Tempo, difficulties..."></textarea>
+      </div>
+      <button id="save-log-btn" class="btn-solid">Save Practice Log</button>
+
+      <div class="history-header">
+        <h3>🗓️ Practice History</h3>
+        <button id="print-history-btn" class="btn-outline btn-small">Print History</button>
+      </div>
+      <ul id="practice-history"></ul>
+    </section>
+  </main>
+  <script src="script.js"></script>
+</body>
+
+</html>

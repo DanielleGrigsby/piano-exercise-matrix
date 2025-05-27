@@ -1,0 +1,427 @@
+/* ========= CSS (All UI Refinements - May 27, 2025) ========= */
+:root {
+  --primary-color: #007bff;
+  --primary-hover: #0056b3;
+  --secondary-color: #28a745;
+  --border-color: #d1d5db;
+  --background-light: #f9fafb;
+  --unified-background: #f3f4f6;
+  --text-dark: #1f2937;
+  --text-light: #ffffff;
+  --highlight-color-white-key: rgba(
+    59,
+    130,
+    246,
+    0.5
+  ); /* 50% opacity blue for white keys */
+  --highlight-color-black-key: #a0c4ff; /* Solid light blue for black keys */
+  --piano-shadow-color: rgba(0, 100, 200, 0.3); /* More dramatic blue shadow */
+  --felt-red-color: #b90000; /* Slightly richer red */
+  --input-width-default: 90px; /* Default narrower width */
+  --input-width-wider: 160px; /* Wider for specific inputs (Tempo, Rhythm Pattern) */
+}
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif;
+  padding: 20px;
+  background: #fff;
+  color: var(--text-dark);
+  line-height: 1.6;
+  margin: 0;
+}
+main {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+header {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+h1 {
+  font-size: 2.2rem;
+  color: var(--text-dark);
+  margin-top: 0;
+}
+hr {
+  margin: 1.5rem 0;
+  border: 0;
+  border-top: 1px solid var(--border-color);
+}
+
+.unified-content-area {
+  background-color: var(--unified-background);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+#scale-visualizer-and-controller,
+#exercise-matrix-section {
+  margin-bottom: 0;
+  padding: 0;
+  background-color: transparent;
+  border: none;
+}
+#exercise-matrix-section {
+  margin-top: 1.5rem;
+}
+section#practice-tracker {
+  margin-bottom: 1.5rem;
+  padding: 1.5rem;
+  background-color: var(--background-light);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+}
+h2 {
+  font-size: 1.5rem;
+  color: var(--text-dark);
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
+  margin-top: 0;
+}
+h3 {
+  font-size: 1.2rem;
+  margin-top: 1.5rem;
+}
+
+label {
+  font-weight: 500;
+  margin-right: 0.5rem;
+  display: inline-block;
+  margin-bottom: 0.25rem;
+}
+select,
+input[type="text"],
+input[type="date"],
+input[type="number"],
+button,
+textarea {
+  padding: 10px;
+  margin: 0 5px 10px 0;
+  border-radius: 5px;
+  border: 1px solid var(--border-color);
+  font-size: 16px;
+  box-sizing: border-box;
+  vertical-align: middle;
+}
+button {
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+  padding: 10px 15px;
+  font-weight: 500;
+}
+.btn-solid {
+  background-color: var(--primary-color);
+  color: var(--text-light);
+  border: 2px solid var(--primary-color);
+}
+.btn-solid:hover {
+  background-color: var(--primary-hover);
+  border-color: var(--primary-hover);
+}
+.btn-outline {
+  background-color: transparent;
+  color: var(--primary-color);
+  border: 2px solid var(--primary-color);
+}
+.btn-outline:hover {
+  background-color: var(--primary-color);
+  color: var(--text-light);
+}
+.btn-small {
+  padding: 6px 12px;
+  font-size: 0.9em;
+}
+
+.controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+.control-row {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+  justify-content: center;
+}
+.control-row.button-row {
+  justify-content: center;
+  width: 100%;
+  margin-top: 0.5rem;
+}
+.controls label {
+  margin-right: 0.25rem;
+}
+.controls select {
+  margin-right: 1rem;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+.form-group label {
+  display: block;
+}
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  max-width: 450px;
+}
+
+/* === Replace ALL your existing piano-related CSS with this block === */
+#piano-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.piano-felt-line {
+  height: 5px;
+  background-color: var(--felt-red-color, #b90000);
+  width: 402px; /* 8 white keys * 50px + 2px for outer key borders */
+  margin-bottom: 0px;
+  border-radius: 2px 2px 0 0;
+}
+
+#piano-container {
+  position: relative; /* Crucial for absolute positioning of black keys */
+  display: flex; /* Lays out the white keys */
+  height: 180px;
+  padding: 0;
+  border-radius: 0 0 5px 5px;
+  border: 1px solid #999;
+  border-top: none;
+  box-shadow: 0 6px 12px -2px var(--piano-shadow-color, rgba(0, 100, 200, 0.3));
+  background-color: transparent;
+}
+
+.key {
+  border: 1px solid #555;
+  box-sizing: border-box;
+  border-radius: 0 0 3px 3px;
+  transition: all 0.1s ease-in-out;
+}
+
+.key.white {
+  height: 100%;
+  width: 50px;
+  background-color: white;
+  z-index: 1; /* White keys are behind black keys */
+}
+
+.key.black {
+  position: absolute; /* Takes black keys out of the normal flow */
+  height: 60%;
+  width: 30px;
+  background-color: #222; /* Deep black */
+  z-index: 2; /* Black keys are on top */
+  margin-left: -15px; /* Pulls the black key back by half its width to center it over the "crack" */
+  border-bottom-width: 0;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3) inset,
+    0 -1px 0px rgba(255, 255, 255, 0.1) inset; /* Subtle depth */
+}
+
+/* Positioning for each black key: 'left' positions its left edge at the right edge of the preceding white key */
+.key[data-note="C#4"] {
+  left: 50px;
+} /* After C4 (1st white key) */
+.key[data-note="D#4"] {
+  left: 100px;
+} /* After D4 (2nd white key) */
+.key[data-note="F#4"] {
+  left: 200px;
+} /* After F4 (4th white key) */
+.key[data-note="G#4"] {
+  left: 250px;
+} /* After G4 (5th white key) */
+.key[data-note="A#4"] {
+  left: 300px;
+} /* After A4 (6th white key) */
+
+.key.white.highlighted {
+  background-color: var(--highlight-color-white-key, rgba(59, 130, 246, 0.5));
+}
+
+.key.black.highlighted {
+  background-color: var(
+    --primary-hover,
+    #0056b3
+  ); /* Solid darker blue background */
+  border: 1px solid var(--primary-color, #007bff); /* A slightly brighter blue border to make it pop */
+  box-shadow: 0 0 7px var(--primary-color, #007bff); /* A subtle glow of the primary blue */
+  /* The original inset shadow for depth is removed as the background color change is the primary indicator */
+}
+/* === End of piano-related CSS block === */
+
+#scale-name-display {
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 1.2em;
+  font-weight: bold;
+  min-height: 1.5em;
+}
+
+#table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+th,
+td {
+  padding: 10px 8px;
+  border: 1px solid var(--border-color);
+  text-align: left;
+  vertical-align: middle;
+}
+/* ADD THIS NEW RULE FOR HEADER ALIGNMENT */
+thead tr:first-child th[rowspan="2"] {
+  vertical-align: bottom;
+  padding-bottom: 8px; /* You can adjust this padding value */
+  text-align: left; /* Override the general center alignment if needed for these specific cells */
+}
+
+/* You might also want to ensure the colspan header is centered if it wasn't already */
+thead tr:first-child th[colspan="2"] {
+  text-align: center;
+}
+th {
+  background-color: #e9ecef;
+  white-space: nowrap;
+}
+td {
+  background-color: white;
+}
+
+td select,
+td input[type="text"],
+td input[type="number"] {
+  width: var(--input-width-default);
+  min-width: var(--input-width-default);
+}
+/* Headers: Exercise(1), Tempo(2), Metronome_Click(3), Metronome_BPM(4), Rhythm Pattern(5), Subdivision(6), Time(7), Action(8) */
+td:nth-child(2) select, /* Tempo */
+td:nth-child(5) select  /* Rhythm Pattern */ {
+  width: var(--input-width-wider);
+  min-width: var(--input-width-wider);
+}
+/* ADD OR MODIFY these rules */
+td:nth-child(2) select, /* Tempo */
+td:nth-child(5) select, /* Rhythm Pattern */
+td:nth-child(6) select  /* Subdivision */ {
+  width: var(--input-width-wider, 170px);
+  min-width: var(--input-width-wider, 170px);
+  vertical-align: middle; /* Explicitly set for the select itself */
+  /* You can try removing margin-top/bottom if they exist or setting them to 0 */
+  margin-top: 0;
+  margin-bottom: 0;
+}
+/* MODIFIED .time-input-cell and supporting rules */
+.time-input-cell {
+  display: flex; /* Use flexbox for alignment of contents */
+  align-items: center; /* Vertically center the items (hour select, colon, minute select) */
+  justify-content: flex-start; /* Align items to the start of the cell */
+  white-space: nowrap; /* Keep items on one line */
+  /* REMOVE explicit padding-top, padding-bottom, padding-left, padding-right from here. 
+       It will inherit the default 'td' padding: 10px 8px; 
+    */
+}
+
+.time-input-cell select {
+  width: auto;
+  min-width: 55px;
+  margin: 0 3px;
+  padding: 6px 5px; /* SLIGHTLY REDUCED internal padding for the select boxes themselves */
+  font-size: 15px;
+  /* vertical-align: middle; -- Not usually needed when parent is flex and align-items: center */
+}
+
+.time-colon {
+  font-weight: bold;
+  margin: 0 1px;
+  padding: 5px 0; /* Add some padding to match select box effective height better */
+  /* vertical-align: middle; -- Not usually needed */
+  line-height: 3;
+}
+
+/* Exercise column: remove min-width to make it as narrow as content allows */
+th:first-child,
+td:first-child {
+  min-width: auto;
+  width: auto;
+  white-space: normal;
+}
+.exercise-key-name {
+  font-size: 0.9em;
+  color: #555;
+  display: block;
+  line-height: 1.2;
+}
+.exercise-template-name {
+  font-size: 1em;
+  font-weight: 500;
+  display: block;
+  line-height: 1.2;
+}
+.exercise-parenthetical {
+  font-size: 0.8em;
+  color: #777;
+  display: block;
+  font-style: italic;
+  line-height: 1.2;
+}
+
+.exercise-name {
+  cursor: pointer;
+}
+
+.history-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1.5rem;
+}
+.history-header h3 {
+  margin: 0;
+}
+#practice-history {
+  list-style-type: none;
+  padding-left: 0;
+  margin-top: 0.5rem;
+}
+#practice-history li {
+  background-color: #fff;
+  padding: 10px;
+  border: 1px solid var(--border-color);
+  border-left: 4px solid var(--primary-color);
+  margin-bottom: 8px;
+  border-radius: 4px;
+  position: relative;
+}
+.delete-log-btn {
+  position: absolute;
+  top: 50%;
+  right: 8px;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  color: #cc0000;
+  font-size: 1.5em;
+  cursor: pointer;
+  padding: 0px 5px;
+  line-height: 1;
+}
+.delete-log-btn:hover {
+  color: #ff0000;
+  font-weight: bold;
+}

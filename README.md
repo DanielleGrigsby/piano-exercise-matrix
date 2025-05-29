@@ -44,7 +44,7 @@ The Piano Exercise Matrix is a web-based application designed to help piano stud
 
 ## 🔮 Future Plans (Examples)
 
-* Integrate Tone.js for audio playback of scales and exercises.
+*✔️ Integrate Tone.js for audio playback of scales and exercises.
 * Integrate VexFlow for sheet music display of scales and exercises.
 * Develop a more advanced calendaring system for practice tracking.
 * Expand to include a "Vocal Exercise Matrix."

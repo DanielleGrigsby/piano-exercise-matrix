@@ -101,7 +101,7 @@ textarea {
   margin: 0 5px 10px 0;
   border-radius: 5px;
   border: 1px solid var(--border-color);
-  font-size: 16px;
+  font-size: 15px;
   box-sizing: border-box;
   vertical-align: middle;
 }
@@ -173,76 +173,84 @@ button {
   max-width: 450px;
 }
 
-/* === Replace ALL your existing piano-related CSS with this block === */
-#piano-wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 1rem;
+/* === Replace ALL your existing piano-related CSS (from #piano-wrapper down) with this block === */
+#piano-wrapper { 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; /* This centers the felt line and piano container */
+    margin-bottom: 1rem; 
 }
 
 .piano-felt-line {
   height: 5px;
   background-color: var(--felt-red-color, #b90000);
-  width: 402px; /* 8 white keys * 50px + 2px for outer key borders */
+  width: 952px; /* Based on 19 keys * 50px + 2px for container border */
   margin-bottom: 0px;
   border-radius: 2px 2px 0 0;
 }
 
 #piano-container {
-  position: relative; /* Crucial for absolute positioning of black keys */
-  display: flex; /* Lays out the white keys */
+  position: relative; 
+  display: flex;     
   height: 180px;
+  width: 950px; /* EXACT width of 19 * 50px keys */
   padding: 0;
   border-radius: 0 0 5px 5px;
-  border: 1px solid #999;
-  border-top: none;
+  border: 1px solid #999; /* This border adds to the overall visual width */
+  border-top: none; 
   box-shadow: 0 6px 12px -2px var(--piano-shadow-color, rgba(0, 100, 200, 0.3));
   background-color: transparent;
 }
-
-.key {
-  border: 1px solid #555;
-  box-sizing: border-box;
+.key { 
+  border: 1px solid #555; 
+  box-sizing: border-box; 
   border-radius: 0 0 3px 3px;
   transition: all 0.1s ease-in-out;
 }
 
+/* White key width is definitive */
 .key.white {
   height: 100%;
-  width: 50px;
+  width: 50px; 
   background-color: white;
-  z-index: 1; /* White keys are behind black keys */
+  z-index: 1;
+  border: 1px solid #555; /* Each key has its border */
+  box-sizing: border-box; /* Width includes border */
 }
-
 .key.black {
-  position: absolute; /* Takes black keys out of the normal flow */
-  height: 60%;
-  width: 30px;
-  background-color: #222; /* Deep black */
-  z-index: 2; /* Black keys are on top */
-  margin-left: -15px; /* Pulls the black key back by half its width to center it over the "crack" */
-  border-bottom-width: 0;
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3) inset,
-    0 -1px 0px rgba(255, 255, 255, 0.1) inset; /* Subtle depth */
+  position: absolute;
+  height: 60%; /* Approx 2/3 height of white keys */
+  width: 30px;  /* Standard black key width */
+  background-color: #222;
+  z-index: 2;
+  margin-left: -15px; /* Pulls back by half its width to center over "crack" */
+  border-bottom-width: 0; /* No bottom border for black keys */
+  box-shadow: 0 1px 1px rgba(0,0,0,0.3) inset, 0 -1px 0px rgba(255,255,255,0.1) inset;
 }
 
 /* Positioning for each black key: 'left' positions its left edge at the right edge of the preceding white key */
-.key[data-note="C#4"] {
-  left: 50px;
-} /* After C4 (1st white key) */
-.key[data-note="D#4"] {
-  left: 100px;
-} /* After D4 (2nd white key) */
-.key[data-note="F#4"] {
-  left: 200px;
-} /* After F4 (4th white key) */
-.key[data-note="G#4"] {
-  left: 250px;
-} /* After G4 (5th white key) */
-.key[data-note="A#4"] {
-  left: 300px;
-} /* After A4 (6th white key) */
+/* Octave 3 Black Keys (relative to B2 being the first white key) */
+/* B2 is white key 1 (index 0). C3 is white key 2 (index 1). */
+.key[data-note="C#3"] { left: calc(50px * 2); }  /* After C3 (2nd white key overall) */
+.key[data-note="D#3"] { left: calc(50px * 3); }  /* After D3 (3rd white key overall) */
+.key[data-note="F#3"] { left: calc(50px * 5); }  /* After F3 (5th white key overall) */
+.key[data-note="G#3"] { left: calc(50px * 6); }  /* After G3 (6th white key overall) */
+.key[data-note="A#3"] { left: calc(50px * 7); }  /* After A3 (7th white key overall) */
+
+/* Octave 4 Black Keys */
+/* B3 is white key 8. C4 is white key 9. */
+.key[data-note="C#4"] { left: calc(50px * 9); }  /* After C4 */
+.key[data-note="D#4"] { left: calc(50px * 10); } /* After D4 */
+.key[data-note="F#4"] { left: calc(50px * 12); } /* After F4 */
+.key[data-note="G#4"] { left: calc(50px * 13); } /* After G4 */
+.key[data-note="A#4"] { left: calc(50px * 14); } /* After A4 */
+
+/* Octave 5 Black Keys */
+/* B4 is white key 15. C5 is white key 16. */
+.key[data-note="C#5"] { left: calc(50px * 16); } /* After C5 */
+.key[data-note="D#5"] { left: calc(50px * 17); } /* After D5 */
+/* E5 and F5 have no black keys immediately following in this range */
+
 
 .key.white.highlighted {
   background-color: var(--highlight-color-white-key, rgba(59, 130, 246, 0.5));

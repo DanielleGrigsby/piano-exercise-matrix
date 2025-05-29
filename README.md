@@ -2,7 +2,11 @@
 
 ## 🎹 Project Description
 
-The Piano Exercise Matrix is a web-based application designed to help piano students and enthusiasts organize and track their practice routines. It provides a dynamic matrix of piano exercises based on selected keys and scales, a visual piano to display scales, and a practice log to keep track of progress.
+The Piano Exercise Matrix is a web-based application designed to help piano students and enthusiasts organize  practice and track it. It provides a dynamic matrix of balanced technical exercises based on your selected keys and scales, a piano visualiser to display and play scales, and a practice log to keep track of progress and print if you want.
+
+## 🚀 Live Demo
+
+You can try out the Piano Exercise Matrix live [https://daniellegrigsby.github.io/piano-exercise-matrix/](https://DanielleGrigsby.github.io/piano-exercise-matrix/)
 
 *(I will add more detail here about my vision for the Piano Exercise Matrix becoming a multi-instrument and songwriting tool later).*
 
@@ -14,12 +18,12 @@ The Piano Exercise Matrix is a web-based application designed to help piano stud
     * Supports a comprehensive list of root notes (including enharmonics) and scale types (major, minor, modes, etc.).
 * **Interactive Controls:**
     * Dropdowns to select root notes and scale types for the visualizer.
-    * "Show Scale" button to update the piano display.
+    * "Play Scale" button to update the piano display.
     * "Update Matrix" button to populate the exercise table based on the visualizer's current key selection.
 * **Detailed Exercise Table:**
     * Lists exercises with options for Tempo, Metronome Click Pattern, BPM, Rhythm Pattern, Subdivision, and practice Time (Hours/Minutes).
     * Hierarchical display of exercise names (Key / Base Exercise / Parenthetical details).
-    * Customizable two-row table header with a "Metronome" super-header.
+    * Customizable Metronome settings to record.
 * **Practice Logging:**
     * Log exercises directly from the matrix row, capturing all selected parameters.
     * Manual practice log for free-form entries.
@@ -40,7 +44,6 @@ The Piano Exercise Matrix is a web-based application designed to help piano stud
 2.  Ensure you have `index.html`, `style.css`, and `script.js` in the same project folder.
 3.  Open `index.html` in any modern web browser (e.g., Chrome, Firefox, Edge, Safari).
 
-*(When I deploy it to GitHub Pages, I'll add the live URL here later).*
 
 ## 🔮 Future Plans (Examples)
 

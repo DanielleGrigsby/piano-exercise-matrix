@@ -720,7 +720,7 @@ console.log("DIAGNOSTIC: Starting initial load logic. MATRIX_DISPLAYABLE_KEYS co
             // AND to avoid the SyntaxError if generateScale was still outputting spans (which it isn't now).
             // NEW REPLACEMENT for initial piano display:
             if (scaleNameDisplay) {
-                scaleNameDisplay.textContent = "Select root & scale type to visualize"; 
+                scaleNameDisplay.textContent = ""; 
             }
             pianoKeys.forEach(key => key.classList.remove("highlighted")); // Ensure piano is clear
             console.log("INITIALIZE: Initial matrix loaded. Piano visualizer is blank, awaiting user interaction.");

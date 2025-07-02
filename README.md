@@ -6,7 +6,7 @@ The Piano Exercise Matrix is a web-based application designed to help piano stud
 
 ## 🚀 Live Demo
 
-You can try out the Piano Exercise Matrix live [https://daniellegrigsby.github.io/piano-exercise-matrix/](https://DanielleGrigsby.github.io/piano-exercise-matrix/)
+You can try out the Piano Exercise Matrix live [https://danielleackerman.github.io/piano-exercise-matrix/](https://DanielleGrigsby.github.io/piano-exercise-matrix/)
 
 *(I will add more detail here about my vision for the Piano Exercise Matrix becoming a multi-instrument and songwriting tool later).*
 
